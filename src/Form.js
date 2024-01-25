@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export default function Form({ onPress }) {
-  const [name, setname] = useState("");
-  const [place, setplace] = useState("");
+export default function Form({ fname, fplace, onPress, forceUpdate, setfo }) {
+  const [name, setname] = useState(fname ?? "");
+  const [place, setplace] = useState(fplace ?? "");
+  useEffect(() => {
+    if (forceUpdate) {
+      setname("");
+      setplace("");
+      setfo();
+    }
+  }, [forceUpdate]);
 
+  console.log(forceUpdate);
   return (
     <div className="shadow-lg bg-white p-5 col-md-3">
+      {/* <p style={{ fontWeight: "bold" }}> Name : </p>
+        <p style={{ fontWeight: "bold" }}> Place : </p> */}
       <input
         placeholder="Name"
         className="form-control my-4"
@@ -21,8 +31,6 @@ export default function Form({ onPress }) {
       <div
         className="btn btn-success form-control mt-4"
         onClick={() => {
-          setname("");
-          setplace("");
           onPress(name, place);
         }}
       >
