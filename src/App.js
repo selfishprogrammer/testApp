@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Form from "./Form";
 
-function App() {
+export default function App() {
+  const [name, setname] = useState("");
+  const [place, setplace] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="d-flex justify-content-center mt-5">
+        <div className="shadow-lg bg-white p-5 col-md-3">
+          <p style={{ fontWeight: "bold" }}> Name : {name}</p>
+          <p style={{ fontWeight: "bold" }}> Place : {place}</p>
+
+          <div
+            className="btn btn-primary form-control mt-4"
+            onClick={() => {
+              setname("");
+              setplace("");
+            }}
+          >
+            Clear
+          </div>
+        </div>
+      </div>
+      <div className="d-flex justify-content-center mt-5">
+        <Form
+          onPress={(n, p) => {
+            setname(n);
+            setplace(p);
+          }}
+        />
+      </div>
+    </>
   );
 }
-
-export default App;
