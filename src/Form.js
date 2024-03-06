@@ -13,7 +13,10 @@ export default function Form({ fname, fplace, onPress, forceUpdate, setfo }) {
 
   console.log(forceUpdate);
   return (
-    <div className="shadow-lg bg-white p-5 col-md-3">
+    <div
+      className=" col-md-5 mx-4 shadow-lg bg-white p-5"
+      style={{ borderRadius: 20 }}
+    >
       {/* <p style={{ fontWeight: "bold" }}> Name : </p>
         <p style={{ fontWeight: "bold" }}> Place : </p> */}
       <input

@@ -8,8 +8,11 @@ export default function App() {
 
   return (
     <>
-      <div className="d-flex justify-content-center mt-5">
-        <div className="shadow-lg bg-white p-5 col-md-3">
+      <div className="container d-flex justify-content-center mt-4">
+        <div
+          className="col-md-5 shadow-lg bg-white p-5 "
+          style={{ borderRadius: 20 }}
+        >
           <p style={{ fontWeight: "bold" }}> Name : {name}</p>
           <p style={{ fontWeight: "bold" }}> Place : {place}</p>
 
@@ -25,8 +28,7 @@ export default function App() {
             Clear
           </div>
         </div>
-      </div>
-      <div className="d-flex justify-content-center mt-5">
+
         <Form
           fname={name}
           fplace={place}
